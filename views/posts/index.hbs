@@ -1,0 +1,65 @@
+<!----->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+h2{
+  margin:20px;
+}
+</style>
+</head>
+<body>
+
+<h2>Danh Sách Ghi Chú</h2>
+
+<table>
+  <tr>
+
+    <th>Tiêu Đề</th>
+    <th>Nội Dung</th>
+    <th>Chức Năng</th>
+  </tr>
+   {{#each posts}}
+  <tr>
+   
+    <td>{{this.title}}</td>
+    <td>{{this.text}}</td>
+    <td> 
+       <div style="display:flex;"> 
+
+       <div style="margin-right:15px" >
+          <a href="/posts/edit/{{this._id}}" class="btn btn-success btn-block mb-2">Sửa</a>
+       </div>
+      <form action="/posts/delete/{{this._id}}?_method=DELETE" method="post">
+      <input type="hidden" name="_method" value="DELETE" />
+      <input type="submit" value="Xóa" class="btn btn-danger btn-block mb-2"onclick="return confirm('Bạn Chắc Chắn Muốn Xóa ?')"; />
+    </form>
+         </div>
+    </form>
+    
+    </td>
+  </tr>
+ {{/each}}
+  {{! {{else}}
+  {{! <p>Chưa Có Bài Viết</p> }}
+</table>
+
+</body>
+</html>
+
+

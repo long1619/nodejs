@@ -1,0 +1,25 @@
+<div class="card card-body">
+  <h3>Cập Nhật Ghi Chú </h3>
+  <form action="/posts/update/{{postsEdit._id}}?_method=PUT" method="post">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="form-group">
+      <label for="title">Tiêu Đề</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        required
+        value="{{postsEdit.title}}"
+      />
+    </div>
+    <div class="form-group">
+      <label for="title">Nội Dung</label>
+      <textarea
+        class="form-control"
+        name="text"
+        required
+      >{{postsEdit.text}}</textarea>
+    </div>
+    <button class="btn btn-primary">Cập Nhật Ghi Chú</button>
+  </form>
+</div>
